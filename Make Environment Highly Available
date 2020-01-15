@@ -1,0 +1,42 @@
+Login to EC2 instance:
+ssh -i labsuser.pem ec2-user@<public-ip>
+
+1.Download, install, and launch Web Server's PHP application
+
+update and install package that creates a web server(install Apache web server(httpd) and PHP language interpreter):
+sudo yum -y update
+sudo yum -y install httpd php
+
+Auto start Apache web server when instance starts:
+sudo chkconfig httpd on
+
+Download PHP web application:
+wget https://aws-tc-largeobjects.s3-us-west-2.amazonaws.com/CUR-TF-200-ACACAD/studentdownload/phpapp.zip
+
+Unzip into default Apache web server directory:
+sudo unzip phpapp.zip -d /var/www/html/
+
+Start web server:
+sudo service httpd start
+
+End SSH session
+exit
+
+2.Create an Amazon Machine Image(AMI)
+Actions>Image>Create Image
+
+3. Configure a second availability zone (AZ)
+Create a second public subnet
+Associate route table to igw
+Create a second private subnet
+Create a second NAT gateway
+Create a second private route table
+
+4. Create an Application Load Balancer
+
+5. Create Auto Scaling Group
+
+
+
+
+
